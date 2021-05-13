@@ -14,8 +14,9 @@ struct CheckItem {
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var tableView: UITableView!
-    private var checkItems:[CheckItem] = [
+    @IBOutlet private weak var tableView: UITableView!
+
+    private var checkItems: [CheckItem] = [
         CheckItem(name: "りんご", isChecked: false),
         CheckItem(name: "みかん", isChecked: true),
         CheckItem(name: "バナナ", isChecked: false),
@@ -26,12 +27,14 @@ class ViewController: UIViewController {
     }
     
     @IBAction func save(segue: UIStoryboardSegue) {
-        if  let nextVC = segue.source as? NextViewController {
-            if let nameText = nextVC.textField.text {
-                checkItems.append(CheckItem(name: nameText, isChecked: false))
-                tableView.reloadData()
-            }
+        guard let nextVC = segue.source as? NextViewController,
+              let nameText = nextVC.name else {
+
+            return
         }
+
+        checkItems.append(CheckItem(name: nameText, isChecked: false))
+        tableView.reloadData()
     }
 }
 
