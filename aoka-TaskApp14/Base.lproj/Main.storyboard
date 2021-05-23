@@ -48,6 +48,7 @@
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="S57-QL-gUU"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="n0M-If-rbz"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -120,12 +121,13 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="sdJ-po-Ok0">
                             <connections>
-                                <segue destination="DeO-cH-MMn" kind="unwind" unwindAction="saveWithSegue:" id="KtH-md-3sd"/>
+                                <action selector="didTapSaveButton:" destination="SaB-s9-Vfe" id="VGS-Zq-JW2"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="textField" destination="AlB-JT-aXE" id="I7R-iF-zHC"/>
+                        <segue destination="DeO-cH-MMn" kind="unwind" identifier="Save" unwindAction="saveWithSegue:" id="ZZ2-iq-KFi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PdW-LK-tHf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

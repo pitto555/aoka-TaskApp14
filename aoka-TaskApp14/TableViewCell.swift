@@ -14,6 +14,7 @@ class TableViewCell: UITableViewCell {
     
     func configure(checkItem: CheckItem) {
         memoLabel.text = checkItem.name
+        checkImage.image = UIImage(named: "oranngeCheck")
         checkImage.image = checkItem.isChecked ? UIImage(named: "oranngeCheck") : nil
     }
 }
